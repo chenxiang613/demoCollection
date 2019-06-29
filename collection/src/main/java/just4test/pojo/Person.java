@@ -19,6 +19,9 @@ public class Person implements Serializable {
 		this.name = name;
 		this.sex = sex;
 	}
+	public Person() {
+		super();
+	}
     
     
     public int getAge() {

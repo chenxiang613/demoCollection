@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
  * An invocation handler that prints out the method name and parameters, then
  * invokes the original method
  */
-class TransactionHandler implements InvocationHandler
+class TraceHandler implements InvocationHandler
 {
    private Object target;
 
@@ -15,7 +15,7 @@ class TransactionHandler implements InvocationHandler
     * Constructs a TraceHandler
     * @param t the implicit parameter of the method call
     */
-   public TransactionHandler(Object t)
+   public TraceHandler(Object t)
    {
       target = t;
    }
@@ -23,7 +23,7 @@ class TransactionHandler implements InvocationHandler
    public Object invoke(Object proxy, Method m, Object[] args) throws Throwable
    {
       // print implicit argument
-      System.out.print("开启事务——————————————————");
+      System.out.print(target);
       // print method name
       System.out.print("." + m.getName() + "(");
       // print explicit arguments
@@ -36,7 +36,6 @@ class TransactionHandler implements InvocationHandler
          }
       }
       System.out.println(")");
-      System.out.print("提交事务——————————————————");
       // invoke actual method
       return m.invoke(target, args);
    }

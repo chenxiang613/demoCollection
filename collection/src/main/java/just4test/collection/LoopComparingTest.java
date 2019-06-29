@@ -1,4 +1,4 @@
-package just4test;
+package just4test.collection;
 
 import java.util.Iterator;
 import java.util.LinkedList;
